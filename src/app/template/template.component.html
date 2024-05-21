@@ -1,0 +1,44 @@
+<mat-toolbar color="warn">
+  <button mat-icon-button (click)="drawer.toggle()">
+    <mat-icon>
+      menu
+    </mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <span class="toolbar-center">
+     <button mat-button routerLink="home">Home</button>
+     <button mat-button routerLink="">Offres</button>
+<img src="assets/%5Bremoval.ai%5D_c2a34ba4-0087-4a41-b303-46a7a03ea85d-images.png" style="height: 50px; width: 50px;">
+  <button mat-button routerLink="menus">Menu</button>
+    <button mat-icon-button  class="fa-bounce"  style="color: #ffffff;" routerLink="caddie">
+       <fa-icon [icon]="faShoppingCart" ></fa-icon>
+     </button>
+    </span>
+
+  <button mat-raised-button routerLink="login">Login</button>
+</mat-toolbar>
+<mat-drawer-container>
+  <mat-drawer #drawer mode="side" position="start" opened="false">
+    <mat-nav-list *ngFor="let i of menu">
+      <mat-list-item (click)="getitems(i)">
+        <div class="flex items-center" (click)="getitems(i)">
+          <mat-icon class=mat-list-item>
+            <img class="img bright" src="{{menuService.apiUrl+'/imagemenu/'+i.id}}">
+          </mat-icon>
+          <span class="text-sm font-bold text-shadow ml-2">{{ i.name }}</span>
+          <button mat-icon-button (click)="ajouteritem(i); $event.stopPropagation()" class="align-right">
+          <fa-icon [icon]="plus"></fa-icon>
+        </button>
+
+        </div>
+      </mat-list-item>
+
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div style="min-height: 800px">
+      <router-outlet>
+      </router-outlet>
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>

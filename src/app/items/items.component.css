@@ -1,0 +1,10 @@
+.clicked {
+  color: red;
+}
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+.align-right {
+  margin-left: auto;
+}

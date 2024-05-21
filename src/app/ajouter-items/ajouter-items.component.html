@@ -1,0 +1,28 @@
+<mat-card>
+
+    <form [formGroup]="itemsform" (ngSubmit)="onSubmit()" class="form-center ">
+      <mat-form-field class="mt-5 large-input" >
+        <mat-label>Nom de l'item</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+<!--      <mat-form-field class="large-input">-->
+<!--        <mat-label>Ingrediant</mat-label>-->
+<!--        <mat-select >-->
+<!--          <mat-option value="primary">Primary</mat-option>-->
+<!--          <mat-option value="accent">Accent</mat-option>-->
+<!--          <mat-option value="warn">Warn</mat-option>-->
+<!--        </mat-select>-->
+<!--      </mat-form-field>-->
+      <mat-form-field class="mt-5 large-input">
+        <mat-label>Prix de l'item</mat-label>
+        <input matInput formControlName="price" type="number" >
+      </mat-form-field>
+
+      <mat-checkbox class="mt-5 large-input" formControlName="available">Disponible</mat-checkbox>
+      <mat-checkbox class="mt-5 large-input" formControlName="offre">Promotion</mat-checkbox>
+
+      <input class="mt-5 large-input" type="file" (change)="onFileChange($event)" formControlName="image">
+      <button class="mt-5 large-input"  mat-raised-button color="primary" type="submit" [disabled]="!itemsform.valid">Ajouter l'item</button>
+    </form>
+
+</mat-card>

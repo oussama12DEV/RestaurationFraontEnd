@@ -1,0 +1,49 @@
+<!--{{newVariable | json}}-->
+<mat-card>
+  <div class="flex flex-col h-screen mb-[56px]">
+    <div class="flex-grow overflow-auto">
+    <div class="flex flex-row flex-wrap justify-around" *ngIf="items" >
+    <div class="example-card  mt-8 flex" *ngFor="let item of items.content" style="width: 500px">
+      <div class="w-1/2">
+        <img mat-card-xl-image src="{{menu.apiUrl+'/imagesitems/'+item.id}}" >
+      </div>
+        <div class="w-1/2">
+          <mat-card-header>
+            <mat-card-title-group>
+              <mat-card-title>{{ item.name }}</mat-card-title>
+              <mat-card-subtitle>
+                Ingredients: {{ item.ingredients }}
+              </mat-card-subtitle>
+            </mat-card-title-group>
+          </mat-card-header>
+          <mat-card-content >
+            <p  class="align-right">
+              Price: {{ item.price }}  DH
+            </p>
+          </mat-card-content>
+<!--          <mat-icon (click)="onIconClick()" [class.clicked]="isClicked">favorite</mat-icon>-->
+          <div class="quantity-control mt-14" >
+            <button mat-icon-button (click)="decreaseQuantity(item)">
+              <fa-icon [icon]="cyrcleminus" class="fa-thin"></fa-icon>
+            </button>
+            <!--            <span>{{itemQuantity}}</span>-->
+            <span>{{item.quantite}}</span>
+
+            <button mat-icon-button (click)="increaseQuantity(item)">
+              <fa-icon [icon]="cyrcleplus" class="fa-thin" ></fa-icon>
+            </button>
+            <button mat-raised-button color="warn" type="submit" (click)="addTocard(item)" >Add to Cart</button>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+    </div>
+</div>
+  <div class="fixed inset-x-0 bottom-0">
+    <mat-paginator [pageSize]="9" [pageSizeOptions]="[5,9,16]">
+    </mat-paginator>
+  </div>
+</mat-card>

@@ -1,0 +1,16 @@
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
+  <div *ngFor="let menu of menus" class="mt-4">
+    <div class="card flex flex-col items-center border-2 p-4">
+      <img [src]="menuService.apiUrl+'/imagemenu/'+menu.id">
+      <h2 class="mat-display-4">{{ menu.name }}</h2>
+      <ul>
+        <li *ngFor="let item of menu.items" class="flex flex-row justify-between">
+          <span class="item-name">{{ item.name }}</span>
+          <span>{{ item.price }}DH</span>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</div>
