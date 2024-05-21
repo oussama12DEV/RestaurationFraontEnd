@@ -1,0 +1,25 @@
+export  interface Item{
+  id:number;
+  name:string;
+  description:string;
+  image:string;
+  price:number;
+  available:boolean;
+  offre:boolean;
+  quantite:number;
+  ingriedients:[string];
+  _links:{
+    self:{
+      href:string
+    },
+    item:{
+      href:string
+    },
+    menu:{
+      href:string
+    }
+    ingredientsDishs:{
+      href:string
+    }
+  }
+}
